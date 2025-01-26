@@ -27,6 +27,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1842
+--- !u!114 &-7289270924533399956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/bubble_push_down
+  m_EditorClassIdentifier: 
+  Path: event:/Player/bubble_push_down
+  Guid:
+    Data1: 1111423172
+    Data2: 1276206152
+    Data3: 211606146
+    Data4: 1286646123
+  Banks:
+  - {fileID: 6167144262100128219}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1842
 --- !u!114 &-7162052941018288406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,9 +96,36 @@ MonoBehaviour:
   Path: Assets/FMOD/Desktop/BG.bank
   Name: BG
   StudioPath: bank:/BG
-  lastModified: 638734284028253951
+  lastModified: 638734282250265158
   FileSizes: []
   Exists: 1
+--- !u!114 &-4868389865262086444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/bubble_push_side
+  m_EditorClassIdentifier: 
+  Path: event:/Player/bubble_push_side
+  Guid:
+    Data1: 1933286217
+    Data2: 1227341162
+    Data3: 1554495107
+    Data4: 1744682034
+  Banks:
+  - {fileID: 6167144262100128219}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1842
 --- !u!114 &-4704616639879295847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,7 +141,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638734284028274247
+  lastModified: 638734282250275160
   FileSizes: []
   Exists: 1
 --- !u!114 &-3896288512667613233
@@ -108,6 +162,33 @@ MonoBehaviour:
     Data2: 1291787579
     Data3: -1372309074
     Data4: 865465284
+  Banks:
+  - {fileID: 6167144262100128219}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1842
+--- !u!114 &-3893247667353345045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/bubble_push_up
+  m_EditorClassIdentifier: 
+  Path: event:/Player/bubble_push_up
+  Guid:
+    Data1: 650342287
+    Data2: 1090671762
+    Data3: 759370167
+    Data4: 26953876
   Banks:
   - {fileID: 6167144262100128219}
   IsStream: 0
@@ -159,7 +240,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638734284028253951
+  lastModified: 638734393524924975
   FileSizes: []
   Exists: 1
 --- !u!114 &-1093815342903318367
@@ -177,10 +258,10 @@ MonoBehaviour:
   Path: Assets/FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638734284028274247
+  lastModified: 638734393524934976
   FileSizes:
   - Name: 
-    Value: 1096
+    Value: 1324
   Exists: 1
 --- !u!114 &-386669386885570460
 MonoBehaviour:
@@ -233,13 +314,45 @@ MonoBehaviour:
   - {fileID: -7162052941018288406}
   - {fileID: -386669386885570460}
   - {fileID: -7562076054305503885}
+  - {fileID: 7524052423309663114}
+  - {fileID: -4868389865262086444}
+  - {fileID: -3893247667353345045}
+  - {fileID: -7289270924533399956}
+  - {fileID: 2212323644705059117}
   EditorParameters: []
   MasterBanks:
   - {fileID: -1101604801253715148}
   StringsBanks:
   - {fileID: -1093815342903318367}
-  cacheTime: 638734284028285890
+  cacheTime: 638734393525249613
   cacheVersion: 131845
+--- !u!114 &2212323644705059117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/bubble_create
+  m_EditorClassIdentifier: 
+  Path: event:/Player/bubble_create
+  Guid:
+    Data1: 1518423709
+    Data2: 1123545768
+    Data3: -55238517
+    Data4: 1980751209
+  Banks:
+  - {fileID: 6167144262100128219}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &6167144262100128219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,6 +368,33 @@ MonoBehaviour:
   Path: Assets/FMOD/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638734284028285890
+  lastModified: 638734393525249613
   FileSizes: []
   Exists: 1
+--- !u!114 &7524052423309663114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/button_click
+  m_EditorClassIdentifier: 
+  Path: event:/Player/button_click
+  Guid:
+    Data1: 2008045325
+    Data2: 1141987804
+    Data3: -1382406006
+    Data4: 660609115
+  Banks:
+  - {fileID: 6167144262100128219}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1842
