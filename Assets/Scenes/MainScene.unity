@@ -1295,9 +1295,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6285704055338595144, guid: 088c5c858132a6b418767e9fcd81c3ee, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6984825605599137372, guid: 088c5c858132a6b418767e9fcd81c3ee, type: 3}
       propertyPath: m_Name
       value: Bubblegotchi Device
+      objectReference: {fileID: 0}
+    - target: {fileID: 8865619294279153826, guid: 088c5c858132a6b418767e9fcd81c3ee, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.253
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
