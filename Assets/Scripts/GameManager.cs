@@ -60,13 +60,15 @@ public class GameManager : MonoBehaviour
         {
             Destroy(bubbleInstance); // "Pop" the bubble on collision.
             devicePromptCanvas.SetActive(false);
+
+            Shader.SetGlobalFloat("_MyFloat", 1.0f);
         }
     }
 
     // Display interactive prompts if conditions are met. 
     void CheckAndDisplayPrompt()
     {
-        if (!_promptIsOpen && bubbleInstance != null)
+        if (!_promptIsOpen && bubbleInstance)
         {
             _timer += Time.deltaTime;
 

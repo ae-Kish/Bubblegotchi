@@ -96,7 +96,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Desktop/BG.bank
   Name: BG
   StudioPath: bank:/BG
-  lastModified: 638735046569000851
+  lastModified: 638735061383822437
   FileSizes: []
   Exists: 1
 --- !u!114 &-4868389865262086444
@@ -285,10 +285,10 @@ MonoBehaviour:
   Path: Assets/FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638735046569020926
+  lastModified: 638735061383837559
   FileSizes:
   - Name: 
-    Value: 1462
+    Value: 1498
   Exists: 1
 --- !u!114 &-386669386885570460
 MonoBehaviour:
@@ -349,13 +349,41 @@ MonoBehaviour:
   - {fileID: 8982395025670525667}
   - {fileID: 3827941727561423551}
   - {fileID: -3411105460170623784}
+  - {fileID: 1763526692697753743}
   EditorParameters: []
   MasterBanks:
   - {fileID: -1101604801253715148}
   StringsBanks:
   - {fileID: -1093815342903318367}
-  cacheTime: 638735046569046037
+  cacheTime: 638735061383837559
   cacheVersion: 131845
+--- !u!114 &1763526692697753743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BG/plant
+  m_EditorClassIdentifier: 
+  Path: event:/BG/plant
+  Guid:
+    Data1: 3589537
+    Data2: 1294906066
+    Data3: -74702173
+    Data4: -155733367
+  Banks:
+  - {fileID: -6308718943609889090}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2164
 --- !u!114 &2212323644705059117
 MonoBehaviour:
   m_ObjectHideFlags: 0
