@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6088871997690508450}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,3 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deviceCanvas: {fileID: 0}
   uiText: {fileID: 0}
+  timeBetweenPrompts: 5
+  plantPrefab: {fileID: 7375237113084156222, guid: 56ba7eade5e32194caa7c6a3333f4236, type: 3}
+  plantLocation: {x: 0, y: 0, z: 0}
+  fanPrefab: {fileID: 0}
+  fanLocation: {x: 0, y: 0, z: 0}
+  bubblePrefab: {fileID: 7655413120741013339, guid: c93914b8e649e1d4288dccf7b50189dc, type: 3}
