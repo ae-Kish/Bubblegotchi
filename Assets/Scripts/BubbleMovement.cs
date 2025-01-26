@@ -7,7 +7,6 @@ public class BubbleMovement : MonoBehaviour
     private float randomForceMaxInterval = 1.0f;
     private float buoyancyStrength = 2.5f;
     private float dragFactor = 0.05f;
-    private float gravityScale = 0.2f;
     private float timeSinceLastMove;
 
     private Rigidbody2D bubbleRb;
@@ -17,7 +16,6 @@ public class BubbleMovement : MonoBehaviour
     void Start()
     {
         bubbleRb = GetComponent<Rigidbody2D>();
-        bubbleRb.gravityScale = gravityScale;
         bubbleRb.mass = 0.1f;
         bubbleRb.linearVelocity = Vector2.zero;
         timeSinceLastMove = 0.0f;

@@ -38,6 +38,9 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         m_Camera = Camera.main;
+        Shader.SetGlobalFloat("_Sad_Prompt", 0f);
+        Shader.SetGlobalFloat("_Hot_Prompt", 0f);
+        Shader.SetGlobalFloat("_Plant_Prompt", 0f);
     }
 
     private void Start()
