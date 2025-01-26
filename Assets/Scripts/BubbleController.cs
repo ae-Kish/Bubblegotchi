@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
+using Unity.VisualScripting;
 
 public class BubbleController : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class BubbleController : MonoBehaviour
     public float horizontalPushOnClick = 5;
 
     public InputActionReference moveInput;
+
+    public GameManager gameManager;
 
     //Audio
     [SerializeField] private FMODUnity.EventReference _clickAudio;
@@ -24,6 +27,8 @@ public class BubbleController : MonoBehaviour
     private void Start()
     {
         FMODUnity.RuntimeManager.PlayOneShotAttached(_createAudio.Guid, gameObject);
+
+        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -59,7 +64,8 @@ public class BubbleController : MonoBehaviour
         {
             Debug.Log("I hit something");
             FMODUnity.RuntimeManager.PlayOneShotAttached(_breakAudio.Guid, gameObject);
-            Destroy(gameObject);
+
+            gameManager.BubbleCollided();
         }
     }
 

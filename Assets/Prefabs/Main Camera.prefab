@@ -220,6 +220,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b42dc0f8ef59f147ab1cc93f4053445, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxFov: 110
+  maxFov: 90
   minFov: 62
   zoomSpeed: 15
