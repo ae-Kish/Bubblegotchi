@@ -20,36 +20,30 @@ public class GameManager : MonoBehaviour
     public GameObject bubblePrefab;
     private GameObject _bubbleInstance;
 
-    //private Component[] bubbleScripts;
-    //private BubbleController bubbleController;
-
-
     private float _timer = 0;
     private bool _promptIsOpen = false;
     private int selectedPromptIndex = 0;
     private string selectedPromptText;
 
-    private List<string> _prompts = new List<string>() {"Bubble is sad.", "Bubble is hot.", "Bubble has a green thumb."};
+    // Set prompt values.
+    const string _prompt1 = "Bubble is sad.";
+    const string _prompt2 = "Bubble is hot.";
+    const string _prompt3 = "Bubble has a green thumb.";
+    
+    private List<string> _prompts = new List<string>() {_prompt1, _prompt2, _prompt3};
+
 
 
     private void Start()
     {
         _bubbleInstance = Instantiate(bubblePrefab, new Vector3(-19.5f, 0, 0), Quaternion.identity);
         Debug.Log($"Bubble loaded successfully? {_bubbleInstance}");
-        //bubbleScripts = bubble.GetComponentsInChildren<BubbleController>();
-
-        //foreach (BubbleController script in bubbleScripts)
-        //{
-        //    Debug.Log($"Bubble controller found?{script}");
-        //    bubbleController = script;
-        //}
         
     }
 
     void Update()
     {
         CheckAndDisplayPrompt();
-        //CheckForBubbleCollisions();
     }
 
 
@@ -61,12 +55,14 @@ public class GameManager : MonoBehaviour
         {
             Destroy(_bubbleInstance);
             Debug.Log($"Game manager destroyed bubble because it popped!");
+
+            deviceCanvas.SetActive(false);
         }
     }
 
     void CheckAndDisplayPrompt()
     {
-        if (!_promptIsOpen)
+        if (!_promptIsOpen && _bubbleInstance != null)
         {
             _timer += Time.deltaTime;
 
@@ -91,20 +87,23 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log($"Prompt responded to! Selected prompt: {selectedPromptText}.  Confirmed: {confirmed}");
         _promptIsOpen = false;
+
         // Disable canvas.
         deviceCanvas.SetActive(false);
 
         // Do something depending on confirmed prompt...
         if (confirmed)
         {
-            switch (selectedPromptIndex)
+            switch (selectedPromptText)
             {
-                case 0:
+                case _prompt1:
+                    _bubbleInstance.GetComponentInChildren<Rigidbody2D>().mass *= 2;
+                    break;
+                case _prompt2:
 
                     break;
-                case 1:
-                    break;
-                case 2:
+                case _prompt3:
+                    Instantiate(plantPrefab, new Vector3(-17, -2.5f, 0), Quaternion.identity);
                     break;
                 default:
                     Debug.Log($"No action found for prompt {selectedPromptText}");
