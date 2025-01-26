@@ -1095,7 +1095,7 @@ PrefabInstance:
       objectReference: {fileID: 984378778}
     - target: {fileID: 6088871997690508450, guid: bf84df5d25b9a484f802cda62ab8557d, type: 3}
       propertyPath: timeBetweenPrompts
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9083149978650032805, guid: bf84df5d25b9a484f802cda62ab8557d, type: 3}
       propertyPath: m_LocalPosition.x
