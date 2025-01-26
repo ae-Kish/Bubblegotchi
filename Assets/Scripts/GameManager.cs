@@ -6,10 +6,14 @@ using System.Collections.Generic;
 public class GameManager : MonoBehaviour
 {
 
+
+
+    public GameObject deviceCanvas;
+    public TMP_Text uiText;
+
     private float _timeBetweenPrompts = 2f;
     private float _timer = 0;
-
-    public TMP_Text uiText;
+    private bool _promptIsOpen = false;
 
     private List<string> _prompts = new List<string>() {"Bubble is sad.", "Bubble is hot.", "Bubble wants his favorite plant..."};
     
@@ -22,22 +26,27 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _timer += Time.deltaTime;
-
-        if (_timer >= _timeBetweenPrompts)
+        if (!_promptIsOpen)
         {
-            _timer = 0;
+            _timer += Time.deltaTime;
 
-            if (_prompts.Count > 0)
+            if (_timer >= _timeBetweenPrompts)
             {
-                int randomIndex = Random.Range(0, _prompts.Count - 1);
+                _timer = 0;
 
-                string selectedPrompt = _prompts[randomIndex];
+                if (_prompts.Count > 0)
+                {
+                    int randomIndex = Random.Range(0, _prompts.Count - 1);
 
-                //Debug.Log($"Selected prompt: {selectedPrompt}");
-                uiText.text = selectedPrompt;
+                    string selectedPrompt = _prompts[randomIndex];
 
-                _prompts.Remove(selectedPrompt);
+                    Debug.Log($"Selected prompt: {selectedPrompt}");
+                    uiText.text = selectedPrompt;
+
+                    _prompts.Remove(selectedPrompt);
+                    deviceCanvas.SetActive(true);
+                    _promptIsOpen = true;
+                }
             }
         }
     }
@@ -45,5 +54,12 @@ public class GameManager : MonoBehaviour
     public void RespondToPrompt(bool confirmed)
     {
         Debug.Log($"Prompt responded to! Confirmed: {confirmed}");
+        _promptIsOpen = false;
+
+        // Do something depending on confirmed...
+        // spawn objects
+
+        // Disable canvas.
+        deviceCanvas.SetActive(false);
     }
 }
