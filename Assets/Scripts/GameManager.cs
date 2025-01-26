@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     // The bubble itself.
     public GameObject bubblePrefab;
     private GameObject bubbleInstance;
+    private BubbleController bubbleController;
 
     private float _timer = 0;
     private bool _promptIsOpen = false;
@@ -32,16 +33,26 @@ public class GameManager : MonoBehaviour
     
     private List<string> prompts = new List<string>() {_prompt1, _prompt2, _prompt3};
 
+    Camera m_Camera;
 
+    private void Awake()
+    {
+        m_Camera = Camera.main;
+        Shader.SetGlobalFloat("_Sad_Prompt", 0f);
+        Shader.SetGlobalFloat("_Hot_Prompt", 0f);
+        Shader.SetGlobalFloat("_Plant_Prompt", 0f);
+    }
 
     private void Start()
     {
         bubbleInstance = Instantiate(bubblePrefab, new Vector3(-19.5f, 0, 0), Quaternion.identity);
+        bubbleController = bubbleInstance.GetComponentInChildren<BubbleController>();
     }
 
     void Update()
     {
         CheckAndDisplayPrompt();
+        ProcessDeviceClicks();
     }
 
 
@@ -52,13 +63,15 @@ public class GameManager : MonoBehaviour
         {
             Destroy(bubbleInstance); // "Pop" the bubble on collision.
             devicePromptCanvas.SetActive(false);
+
+            Shader.SetGlobalFloat("_MyFloat", 1.0f);
         }
     }
 
     // Display interactive prompts if conditions are met. 
     void CheckAndDisplayPrompt()
     {
-        if (!_promptIsOpen && bubbleInstance != null)
+        if (!_promptIsOpen && bubbleInstance)
         {
             _timer += Time.deltaTime;
 
@@ -73,7 +86,25 @@ public class GameManager : MonoBehaviour
                     uiText.text = selectedPromptText;
 
                     devicePromptCanvas.SetActive(true);
+
                     _promptIsOpen = true;
+
+
+                    switch (selectedPromptText)
+                    {
+                        case _prompt1: // Bubble is sad - increase mass
+                            Shader.SetGlobalFloat("_Sad_Prompt", 0.75f);
+                            break;
+                        case _prompt2: // Bubble is hot - spawn fan
+                            Shader.SetGlobalFloat("_Hot_Prompt", 0.75f);
+                            break;
+                        case _prompt3: // Bubble wants a plant - spawn cactus
+                            Shader.SetGlobalFloat("_Plant_Prompt", 0.75f);
+                            break;
+                        default:
+                            Debug.Log($"No action found for prompt {selectedPromptText}");
+                            break;
+                    }
                 }
             }
         }
@@ -107,14 +138,57 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        switch (selectedPromptText)
+        {
+            case _prompt1: // Bubble is sad - increase mass
+                Shader.SetGlobalFloat("_Sad_Prompt", 0f);
+                break;
+            case _prompt2: // Bubble is hot - spawn fan
+                Shader.SetGlobalFloat("_Hot_Prompt", 0f);
+                break;
+            case _prompt3: // Bubble wants a plant - spawn cactus
+                Shader.SetGlobalFloat("_Plant_Prompt", 0f);
+                break;
+            default:
+                Debug.Log($"No action found for prompt {selectedPromptText}");
+                break;
+        }
+
         // Remove the processed prompt from the prompts list.
         prompts.RemoveAt(selectedPromptIndex);
 
     }
 
-    public void SpawnPrefab(GameObject prefab)
+    private void ProcessDeviceClicks()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 mousePosition = Input.mousePosition;
+            Ray ray = m_Camera.ScreenPointToRay(mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {
+                // Use the hit variable to determine what was clicked on.
+                string clickedButton = hit.collider.gameObject.name;
 
-        Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity);
+                switch (clickedButton)
+                {
+                    case "polySurface1":
+                        RespondToPrompt(true);
+                        break;
+                    case "polySurface2":
+                        RespondToPrompt(false);
+                        break;
+                    case "polySurface3":
+                        bubbleController.BubbleMoveRight();
+                        break;
+                    case "polySurface4":
+                        bubbleController.BubbleMoveUp();
+                        break;
+                    case "polySurface5":
+                        bubbleController.BubbleMoveLeft();
+                        break;
+                }
+            }
+        }
     }
 }

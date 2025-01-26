@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   devicePromptCanvas: {fileID: 0}
   uiText: {fileID: 0}
-  timeBetweenPrompts: 15
+  timeBetweenPrompts: 10
   plantPrefab: {fileID: 7375237113084156222, guid: 56ba7eade5e32194caa7c6a3333f4236, type: 3}
   plantLocation: {x: -17, y: -2.5, z: 0}
   fanPrefab: {fileID: 9073057038039681695, guid: 02f8d60e66e68b642b5be6ff641f98a7, type: 3}
