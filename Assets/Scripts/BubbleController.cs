@@ -87,25 +87,25 @@ public class BubbleController : MonoBehaviour
     //}
 
 
-    private void BubbleMoveUp()
+    public void BubbleMoveUp()
     {
         myRigidBody.linearVelocity += new Vector2(0, verticalPushOnClick);
         FMODUnity.RuntimeManager.PlayOneShotAttached(_upPushAudio.Guid, gameObject);
     }
 
-    private void BubbleMoveDown()
+    public void BubbleMoveDown()
     {
         myRigidBody.linearVelocity += new Vector2(0, -verticalPushOnClick);
         FMODUnity.RuntimeManager.PlayOneShotAttached(_downPushAudio.Guid, gameObject);
     }
 
-    private void BubbleMoveRight()
+    public void BubbleMoveRight()
     {
         myRigidBody.linearVelocity = new Vector2(horizontalPushOnClick, 0);
         FMODUnity.RuntimeManager.PlayOneShotAttached(_sidePushAudio, gameObject);
     }
 
-    private void BubbleMoveLeft()
+    public void BubbleMoveLeft()
     {
         myRigidBody.linearVelocity = new Vector2(-horizontalPushOnClick, 0);
         FMODUnity.RuntimeManager.PlayOneShotAttached(_sidePushAudio, gameObject);
