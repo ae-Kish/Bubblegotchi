@@ -14,10 +14,17 @@ public class BubbleController : MonoBehaviour
 
     //Audio
     [SerializeField] private FMODUnity.EventReference _clickAudio;
-    [SerializeField] private FMODUnity.EventReference _pushAudio;
+    [SerializeField] private FMODUnity.EventReference _sidePushAudio;
+    [SerializeField] private FMODUnity.EventReference _upPushAudio;
+    [SerializeField] private FMODUnity.EventReference _downPushAudio;
     [SerializeField] private FMODUnity.EventReference _collideAudio;
     [SerializeField] private FMODUnity.EventReference _breakAudio;
+    [SerializeField] private FMODUnity.EventReference _createAudio;
 
+    private void Start()
+    {
+        FMODUnity.RuntimeManager.PlayOneShotAttached(_createAudio.Guid, gameObject);
+    }
 
     // Update is called once per frame
     void Update()
@@ -51,6 +58,7 @@ public class BubbleController : MonoBehaviour
         if (collision.gameObject.layer == 6)
         {
             Debug.Log("I hit something");
+            FMODUnity.RuntimeManager.PlayOneShotAttached(_breakAudio.Guid, gameObject);
             Destroy(gameObject);
         }
     }
@@ -60,36 +68,40 @@ public class BubbleController : MonoBehaviour
     {
         Debug.Log("PrintOnDisable: script was disabled");
     }
+    //Commenting out since I'm not really using them.
 
-    private void PlayPushSound()
-    {
-        FMODUnity.RuntimeManager.PlayOneShot(_pushAudio.Guid, transform.position);
-    }
+    //private void PlayPushSound()
+    //{
+    //    FMODUnity.RuntimeManager.PlayOneShot(_sidePushAudio.Guid, transform.position);
+    //}
 
-    private void PlayClickSound()
-    {
-        FMODUnity.RuntimeManager.PlayOneShot(_clickAudio.Guid, transform.position);
-    }
+    //private void PlayClickSound()
+    //{
+    //    FMODUnity.RuntimeManager.PlayOneShotAttached(_clickAudio.Guid, gameObject);
+    //}
 
 
     private void BubbleMoveUp()
     {
         myRigidBody.linearVelocity += new Vector2(0, verticalPushOnClick);
-        PlayPushSound();
+        FMODUnity.RuntimeManager.PlayOneShotAttached(_upPushAudio.Guid, gameObject);
     }
 
     private void BubbleMoveDown()
     {
         myRigidBody.linearVelocity += new Vector2(0, -verticalPushOnClick);
+        FMODUnity.RuntimeManager.PlayOneShotAttached(_downPushAudio.Guid, gameObject);
     }
 
     private void BubbleMoveRight()
     {
         myRigidBody.linearVelocity = new Vector2(horizontalPushOnClick, 0);
+        FMODUnity.RuntimeManager.PlayOneShotAttached(_sidePushAudio, gameObject);
     }
 
     private void BubbleMoveLeft()
     {
         myRigidBody.linearVelocity = new Vector2(-horizontalPushOnClick, 0);
+        FMODUnity.RuntimeManager.PlayOneShotAttached(_sidePushAudio, gameObject);
     }
 }

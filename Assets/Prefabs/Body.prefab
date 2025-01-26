@@ -177,13 +177,27 @@ MonoBehaviour:
       Data3: -381705844
       Data4: 1626012474
     Path: event:/Player/click_air
-  _pushAudio:
+  _sidePushAudio:
     Guid:
-      Data1: 1807047500
-      Data2: 1291787579
-      Data3: -1372309074
-      Data4: 865465284
-    Path: event:/Player/bubble_push
+      Data1: 1933286217
+      Data2: 1227341162
+      Data3: 1554495107
+      Data4: 1744682034
+    Path: event:/Player/bubble_push_side
+  _upPushAudio:
+    Guid:
+      Data1: 650342287
+      Data2: 1090671762
+      Data3: 759370167
+      Data4: 26953876
+    Path: event:/Player/bubble_push_up
+  _downPushAudio:
+    Guid:
+      Data1: 1111423172
+      Data2: 1276206152
+      Data3: 211606146
+      Data4: 1286646123
+    Path: event:/Player/bubble_push_down
   _collideAudio:
     Guid:
       Data1: 1685308754
@@ -198,3 +212,10 @@ MonoBehaviour:
       Data3: 624955808
       Data4: 229487104
     Path: event:/Player/bubble_break
+  _createAudio:
+    Guid:
+      Data1: 1518423709
+      Data2: 1123545768
+      Data3: -55238517
+      Data4: 1980751209
+    Path: event:/Player/bubble_create
