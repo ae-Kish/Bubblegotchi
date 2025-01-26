@@ -97,7 +97,7 @@ public class BubbleController : MonoBehaviour
     // looks for a plant and we will pop the bubble on hit
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 3)
+        if (collision.gameObject.layer == 6)
         {
             Debug.Log("I hit something");
             Destroy(gameObject);
