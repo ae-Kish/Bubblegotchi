@@ -1037,6 +1037,22 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1407245269}
+    - target: {fileID: 1445237640051791439, guid: 088c5c858132a6b418767e9fcd81c3ee, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445237640051791439, guid: 088c5c858132a6b418767e9fcd81c3ee, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445237640051791439, guid: 088c5c858132a6b418767e9fcd81c3ee, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2457188092313738051, guid: 088c5c858132a6b418767e9fcd81c3ee, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2055105530}
     - target: {fileID: 4735872251821108183, guid: 088c5c858132a6b418767e9fcd81c3ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1081,34 +1097,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bubblegotchi Device
       objectReference: {fileID: 0}
-    - target: {fileID: 7497939669370566981, guid: 088c5c858132a6b418767e9fcd81c3ee, type: 3}
-      propertyPath: m_CullTransparentMesh
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8682010755401837249, guid: 088c5c858132a6b418767e9fcd81c3ee, type: 3}
-      propertyPath: m_TagString
-      value: DeviceUIText
-      objectReference: {fileID: 0}
-    - target: {fileID: 8930269549767241558, guid: 088c5c858132a6b418767e9fcd81c3ee, type: 3}
-      propertyPath: m_fontColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8930269549767241558, guid: 088c5c858132a6b418767e9fcd81c3ee, type: 3}
-      propertyPath: m_fontColor.b
+    - target: {fileID: 7233965737936825007, guid: 088c5c858132a6b418767e9fcd81c3ee, type: 3}
+      propertyPath: m_UseSpriteMesh
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8930269549767241558, guid: 088c5c858132a6b418767e9fcd81c3ee, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0.09433961
-      objectReference: {fileID: 0}
-    - target: {fileID: 8930269549767241558, guid: 088c5c858132a6b418767e9fcd81c3ee, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0.047530167
-      objectReference: {fileID: 0}
-    - target: {fileID: 8930269549767241558, guid: 088c5c858132a6b418767e9fcd81c3ee, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4278196236
-      objectReference: {fileID: 0}
+    - target: {fileID: 8416931330741638723, guid: 088c5c858132a6b418767e9fcd81c3ee, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2055105530}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1122,6 +1118,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2194084778761607952, guid: 848a08788ee0b1a4a8dc7aefde570eeb, type: 3}
+      propertyPath: m_CameraType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2194084778761607952, guid: 848a08788ee0b1a4a8dc7aefde570eeb, type: 3}
+      propertyPath: m_Antialiasing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2194084778761607952, guid: 848a08788ee0b1a4a8dc7aefde570eeb, type: 3}
+      propertyPath: m_AllowXRRendering
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2194084778761607952, guid: 848a08788ee0b1a4a8dc7aefde570eeb, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2194084778761607952, guid: 848a08788ee0b1a4a8dc7aefde570eeb, type: 3}
+      propertyPath: m_RequiresOpaqueTextureOption
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2903480057058719795, guid: 848a08788ee0b1a4a8dc7aefde570eeb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.6
@@ -1164,7 +1180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4752633603110785181, guid: 848a08788ee0b1a4a8dc7aefde570eeb, type: 3}
       propertyPath: m_ClearFlags
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4752633603110785181, guid: 848a08788ee0b1a4a8dc7aefde570eeb, type: 3}
       propertyPath: m_TargetTexture
@@ -1189,6 +1205,10 @@ PrefabInstance:
     - target: {fileID: 4752633603110785181, guid: 848a08788ee0b1a4a8dc7aefde570eeb, type: 3}
       propertyPath: m_CullingMask.m_Bits
       value: 96
+      objectReference: {fileID: 0}
+    - target: {fileID: 4752633603110785181, guid: 848a08788ee0b1a4a8dc7aefde570eeb, type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8464011406076927784, guid: 848a08788ee0b1a4a8dc7aefde570eeb, type: 3}
       propertyPath: m_Name

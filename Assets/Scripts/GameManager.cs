@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        uiText.text = "Hello world.";
+        //uiText.text = "Hello world.";
     }
 
     // Update is called once per frame
@@ -27,9 +27,6 @@ public class GameManager : MonoBehaviour
         if (_timer >= _timeBetweenPrompts)
         {
             _timer = 0;
-
-            //Debug.Log($"Hello? {uiText.text}");
-            //Debug.Log($"Time for a new prompt! Current prompt: {_textMeshPro.text
 
             if (_prompts.Count > 0)
             {
@@ -43,5 +40,10 @@ public class GameManager : MonoBehaviour
                 _prompts.Remove(selectedPrompt);
             }
         }
+    }
+
+    public void RespondToPrompt(bool confirmed)
+    {
+        Debug.Log($"Prompt responded to! Confirmed: {confirmed}");
     }
 }
