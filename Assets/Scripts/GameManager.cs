@@ -8,7 +8,7 @@ using Unity.VisualScripting;
 public class GameManager : MonoBehaviour
 {
     // Prompt UI
-    public GameObject deviceCanvas;
+    public GameObject devicePromptCanvas;
     public TMP_Text uiText;
     public float timeBetweenPrompts = 5f;
 
@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     // The bubble itself.
     public GameObject bubblePrefab;
-    private GameObject _bubbleInstance;
+    private GameObject bubbleInstance;
 
     private float _timer = 0;
     private bool _promptIsOpen = false;
@@ -30,15 +30,13 @@ public class GameManager : MonoBehaviour
     const string _prompt2 = "Bubble is hot.";
     const string _prompt3 = "Bubble has a green thumb.";
     
-    private List<string> _prompts = new List<string>() {_prompt1, _prompt2, _prompt3};
+    private List<string> prompts = new List<string>() {_prompt1, _prompt2, _prompt3};
 
 
 
     private void Start()
     {
-        _bubbleInstance = Instantiate(bubblePrefab, new Vector3(-19.5f, 0, 0), Quaternion.identity);
-        Debug.Log($"Bubble loaded successfully? {_bubbleInstance}");
-        
+        bubbleInstance = Instantiate(bubblePrefab, new Vector3(-19.5f, 0, 0), Quaternion.identity);
     }
 
     void Update()
@@ -47,22 +45,20 @@ public class GameManager : MonoBehaviour
     }
 
 
-
+    // Called by the BubbleController script when the bubble touches something.
     public void BubbleCollided()
     {
-
-        if (_bubbleInstance != null)
+        if (bubbleInstance != null)
         {
-            Destroy(_bubbleInstance);
-            Debug.Log($"Game manager destroyed bubble because it popped!");
-
-            deviceCanvas.SetActive(false);
+            Destroy(bubbleInstance); // "Pop" the bubble on collision.
+            devicePromptCanvas.SetActive(false);
         }
     }
 
+    // Display interactive prompts if conditions are met. 
     void CheckAndDisplayPrompt()
     {
-        if (!_promptIsOpen && _bubbleInstance != null)
+        if (!_promptIsOpen && bubbleInstance != null)
         {
             _timer += Time.deltaTime;
 
@@ -70,13 +66,13 @@ public class GameManager : MonoBehaviour
             {
                 _timer = 0;
 
-                if (_prompts.Count > 0)
+                if (prompts.Count > 0)
                 {
-                    selectedPromptIndex = Random.Range(0, _prompts.Count - 1); // Pick a random prompt from the list of remaining prompts.
-                    selectedPromptText = _prompts[selectedPromptIndex];
+                    selectedPromptIndex = Random.Range(0, prompts.Count - 1); // Pick a random prompt from the list of remaining prompts.
+                    selectedPromptText = prompts[selectedPromptIndex];
                     uiText.text = selectedPromptText;
 
-                    deviceCanvas.SetActive(true);
+                    devicePromptCanvas.SetActive(true);
                     _promptIsOpen = true;
                 }
             }
@@ -85,25 +81,25 @@ public class GameManager : MonoBehaviour
 
     public void RespondToPrompt(bool confirmed)
     {
-        Debug.Log($"Prompt responded to! Selected prompt: {selectedPromptText}.  Confirmed: {confirmed}");
+        //Debug.Log($"Prompt responded to! Selected prompt: {selectedPromptText}.  Confirmed: {confirmed}");
         _promptIsOpen = false;
 
         // Disable canvas.
-        deviceCanvas.SetActive(false);
+        devicePromptCanvas.SetActive(false);
 
         // Do something depending on confirmed prompt...
         if (confirmed)
         {
             switch (selectedPromptText)
             {
-                case _prompt1:
-                    _bubbleInstance.GetComponentInChildren<Rigidbody2D>().mass *= 2;
+                case _prompt1: // Bubble is sad - increase mass
+                    bubbleInstance.GetComponentInChildren<Rigidbody2D>().gravityScale += 1;
                     break;
-                case _prompt2:
-
+                case _prompt2: // Bubble is hot - spawn fan
+                    Instantiate(fanPrefab, fanLocation, Quaternion.identity);
                     break;
-                case _prompt3:
-                    Instantiate(plantPrefab, new Vector3(-17, -2.5f, 0), Quaternion.identity);
+                case _prompt3: // Bubble wants a plant - spawn cactus
+                    Instantiate(plantPrefab, plantLocation, Quaternion.identity);
                     break;
                 default:
                     Debug.Log($"No action found for prompt {selectedPromptText}");
@@ -112,7 +108,7 @@ public class GameManager : MonoBehaviour
         }
 
         // Remove the processed prompt from the prompts list.
-        _prompts.RemoveAt(selectedPromptIndex);
+        prompts.RemoveAt(selectedPromptIndex);
 
     }
 
