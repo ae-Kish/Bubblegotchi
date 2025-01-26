@@ -53,7 +53,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1842
+  Length: 2000
 --- !u!114 &-7162052941018288406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,7 +96,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Desktop/BG.bank
   Name: BG
   StudioPath: bank:/BG
-  lastModified: 638734282250265158
+  lastModified: 638734492009752978
   FileSizes: []
   Exists: 1
 --- !u!114 &-4868389865262086444
@@ -125,7 +125,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1842
+  Length: 2000
 --- !u!114 &-4704616639879295847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,7 +141,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638734282250275160
+  lastModified: 638734492009772936
   FileSizes: []
   Exists: 1
 --- !u!114 &-3896288512667613233
@@ -170,7 +170,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1842
+  Length: 1125
 --- !u!114 &-3893247667353345045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,7 +197,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1842
+  Length: 2000
 --- !u!114 &-2640325395246308562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,13 +218,13 @@ MonoBehaviour:
     Data4: 683681193
   Banks:
   - {fileID: -6308718943609889090}
-  IsStream: 0
+  IsStream: 1
   Is3D: 1
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 26396
 --- !u!114 &-1101604801253715148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,7 +240,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638734393524924975
+  lastModified: 638734492009752978
   FileSizes: []
   Exists: 1
 --- !u!114 &-1093815342903318367
@@ -258,7 +258,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638734393524934976
+  lastModified: 638734492009762960
   FileSizes:
   - Name: 
     Value: 1324
@@ -289,7 +289,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 794
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,7 +324,7 @@ MonoBehaviour:
   - {fileID: -1101604801253715148}
   StringsBanks:
   - {fileID: -1093815342903318367}
-  cacheTime: 638734393525249613
+  cacheTime: 638734492009792876
   cacheVersion: 131845
 --- !u!114 &2212323644705059117
 MonoBehaviour:
@@ -368,7 +368,7 @@ MonoBehaviour:
   Path: Assets/FMOD/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638734393525249613
+  lastModified: 638734492009792876
   FileSizes: []
   Exists: 1
 --- !u!114 &7524052423309663114
