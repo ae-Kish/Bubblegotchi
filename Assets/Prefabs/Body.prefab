@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5518535484535151767}
   - component: {fileID: 1656343126458339467}
   - component: {fileID: -1171536582181032599}
+  - component: {fileID: -6591205113164295052}
   m_Layer: 3
   m_Name: Body
   m_TagString: Untagged
@@ -102,7 +103,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1.5
+  m_Mass: 1
   m_LinearDamping: 5
   m_AngularDamping: 0.05
   m_GravityScale: 0.8
@@ -220,3 +221,16 @@ MonoBehaviour:
       Data3: -55238517
       Data4: 1980751209
     Path: event:/Player/bubble_create
+--- !u!114 &-6591205113164295052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5207617002261309281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6779117f7ac87764c9e8b02ff4d34217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveForce: 0.2
