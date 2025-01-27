@@ -121,6 +121,8 @@ public class GameManager : MonoBehaviour
 
     public void RespondToPrompt(bool confirmed)
     {
+        if (!_promptIsOpen) return;
+
         //Debug.Log($"Prompt responded to! Selected prompt: {selectedPromptText}.  Confirmed: {confirmed}");
         _promptIsOpen = false;
 
@@ -143,11 +145,14 @@ public class GameManager : MonoBehaviour
                     break;
                 case "Death":
                     SceneManager.LoadScene("MainScene");
-                    break;
+                    return;
                 default:
                     Debug.Log($"No action found for prompt {selectedPromptText}");
                     break;
             }
+
+            // Remove the processed prompt from the prompts list.
+            prompts.RemoveAt(selectedPromptIndex);
         }
         else
         {
@@ -159,10 +164,16 @@ public class GameManager : MonoBehaviour
 
         // Hide all prompts after selection is made.
         HideAllPrompts();
+    }
 
-        // Remove the processed prompt from the prompts list.
-        prompts.RemoveAt(selectedPromptIndex);
+    private void TriggerButtonAnim(GameObject deviceButton)
+    {
+        Animator anim = deviceButton.GetComponent<Animator>();
 
+        if (anim)
+        {
+            anim.SetTrigger("Active");
+        }
     }
 
     private void ProcessDeviceClicks()
@@ -175,6 +186,9 @@ public class GameManager : MonoBehaviour
             {
                 // Use the hit variable to determine what was clicked on.
                 string clickedButton = hit.collider.gameObject.name;
+
+                // Play the anim for the corresponding button.
+                TriggerButtonAnim(hit.collider.gameObject);
 
                 switch (clickedButton)
                 {
