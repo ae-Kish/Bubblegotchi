@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99a68a6eebb8827429b36de7b04b3768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubble: {fileID: 0}
+  bubble: {fileID: 5207617002261309281, guid: f2fe39dad85872042b73330407f659d4, type: 3}
   fanForce: 25
   maxDistanceToBubble: 5
 --- !u!114 &8050180747451761140
