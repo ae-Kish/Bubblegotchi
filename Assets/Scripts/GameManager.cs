@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEditor;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -38,9 +39,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         m_Camera = Camera.main;
-        Shader.SetGlobalFloat("_Sad_Prompt", 0f);
-        Shader.SetGlobalFloat("_Hot_Prompt", 0f);
-        Shader.SetGlobalFloat("_Plant_Prompt", 0f);
+        HideAllPrompts();
     }
 
     private void Start()
@@ -56,22 +55,32 @@ public class GameManager : MonoBehaviour
     }
 
 
+    private void HideAllPrompts()
+    {
+        Shader.SetGlobalFloat("_Sad_Prompt", 0f);
+        Shader.SetGlobalFloat("_Hot_Prompt", 0f);
+        Shader.SetGlobalFloat("_Plant_Prompt", 0f);
+        Shader.SetGlobalFloat("_Death_Prompt", 0f);
+    }
+
     // Called by the BubbleController script when the bubble touches something.
     public void BubbleCollided()
     {
         if (bubbleInstance != null)
         {
             Destroy(bubbleInstance); // "Pop" the bubble on collision.
-            devicePromptCanvas.SetActive(false);
-
-            Shader.SetGlobalFloat("_MyFloat", 1.0f);
+            HideAllPrompts(); // Clear any active prompts.
+            Shader.SetGlobalFloat("_Death_Prompt", 0.75f);
+            selectedPromptText = "Death";
+            devicePromptCanvas.SetActive(true);
+            _promptIsOpen = true;
         }
     }
 
     // Display interactive prompts if conditions are met. 
     void CheckAndDisplayPrompt()
     {
-        if (!_promptIsOpen && bubbleInstance)
+        if (!_promptIsOpen && (bubbleInstance || Shader.GetGlobalFloat("_Death_Prompt") == 0.75f) )
         {
             _timer += Time.deltaTime;
 
@@ -92,13 +101,13 @@ public class GameManager : MonoBehaviour
 
                     switch (selectedPromptText)
                     {
-                        case _prompt1: // Bubble is sad - increase mass
+                        case _prompt1: // Bubble is sad text
                             Shader.SetGlobalFloat("_Sad_Prompt", 0.75f);
                             break;
-                        case _prompt2: // Bubble is hot - spawn fan
+                        case _prompt2: // Bubble is hot text
                             Shader.SetGlobalFloat("_Hot_Prompt", 0.75f);
                             break;
-                        case _prompt3: // Bubble wants a plant - spawn cactus
+                        case _prompt3: // Bubble wants a plant text
                             Shader.SetGlobalFloat("_Plant_Prompt", 0.75f);
                             break;
                         default:
@@ -132,27 +141,24 @@ public class GameManager : MonoBehaviour
                 case _prompt3: // Bubble wants a plant - spawn cactus
                     Instantiate(plantPrefab, plantLocation, Quaternion.identity);
                     break;
+                case "Death":
+                    SceneManager.LoadScene("MainScene");
+                    break;
                 default:
                     Debug.Log($"No action found for prompt {selectedPromptText}");
                     break;
             }
         }
-
-        switch (selectedPromptText)
+        else
         {
-            case _prompt1: // Bubble is sad - increase mass
-                Shader.SetGlobalFloat("_Sad_Prompt", 0f);
-                break;
-            case _prompt2: // Bubble is hot - spawn fan
-                Shader.SetGlobalFloat("_Hot_Prompt", 0f);
-                break;
-            case _prompt3: // Bubble wants a plant - spawn cactus
-                Shader.SetGlobalFloat("_Plant_Prompt", 0f);
-                break;
-            default:
-                Debug.Log($"No action found for prompt {selectedPromptText}");
-                break;
+            if (selectedPromptText == "Death")
+            {
+                Application.Quit();
+            }
         }
+
+        // Hide all prompts after selection is made.
+        HideAllPrompts();
 
         // Remove the processed prompt from the prompts list.
         prompts.RemoveAt(selectedPromptIndex);
